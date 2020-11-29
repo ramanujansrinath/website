@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+
+    <title>Ramanujan Srinath, PhD</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/lightbox.css" />
+
+    <style>
+      img {
+          width: 100%;
+          overflow: hidden;
+          border-radius: 5px;
+          margin-left: 8px
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <div class="image">
+              <a href="index.html"><img src="assets/images/avatar.jpeg" alt="" /></a>
+            </div>
+            <div class="author-content">
+              <h4>Ramanujan Srinath</h4>
+              <span>Neuroscientist</span>
+            </div>
+            <!-- <div class="social-network">
+              <ul class="soial-icons">
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-dribbble"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-rss"></i></a>
+                </li>
+              </ul>
+            </div> -->
+            <div class="copyright-text">
+              <p>Copyright 2020 Ramanujan Srinth</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section post" data-section="section1">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Interactive Shape Morphs</h2>
+            <div class="line-dec"></div>
+            <span>
+              Creating shape you can interact with for human psychophysics
+            </span>
+          </div>
+          <div class="row">
+            <span>
+              <!-- <img src="assets/images/squish_rand.png" width="300" align="right"> -->
+              <p align="left">
+                For <a href="https://gregmckeown.com/how-to-say-no-gracefully">Secret Reasons™</a>, I had to come up with a set of objects I could ‘interact’ with. (The central idea here keeps recurring in my day dreams and is taking the shape of something I want to study as a PI — more on that another time.) I started off with some random shapes as described elsewhere. 
+              </p>
+              <!-- <div style="text-align: center; margin-bottom: 10px"><img src="assets/images/squish_rand.png" /></div> -->
+              <p align="left">
+                The two interesting manipulations I thought of at the time were both inspired by interacting with touchscreen devices — pinch-to-zoom and crop. One would use two finger to pinch-to-zoom to squish the object along an axis, and use one finger to move a part of the object closer or farther away from the object centre. These two interactions could become the basis of a psychophysical study — “modify this shape to resemble a shape you saw before” or something like that. I later added two more morphs to “blockify” or “break up” shapes. You could double-tap on the shape to break it up and join them back up by dragging your fingers across two shapes. You could draw a square around the shape with your finger to make it blocky and draw curves to make it curvy.
+              </p>
+              <div style="text-align: center; margin-bottom: 10px"><img src="assets/images/squish_morph.png" /></div>
+              <p align="left">
+                The scientific question and the details of how you control for differences in motor outputs, perceptual differences between shape features, etc. are all super interesting but beyond the scope of this post. As with a lot of these projects, this one was technically very satisfying to solve and may become a part of a different project later in life. There are some interesting shape nerd-ery under the hood — forming shapes from Voronoi tessellations, keeping track of cubic b-splines as they change across morphs, comparing shapes formed by rectilinear blocks vs curved contours, etc. Cool stuff!
+              </p>
+              <p align="left">
+                (PS: Also, not only do some of my images bear striking resemblance to this illustration from “The quantitative study of shape and pattern perception”, this body of work is inspired in part from decades of careful shape analysis starting from Fred Attneave, David Marr, Harry Blum, J Anthony Deutsch and many more I am forgetting.)
+              </p>
+            </span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+      //according to loftblog tut
+      $(".main-menu li:first").addClass("active");
+
+      var showSection = function showSection(section, isAnimate) {
+        var direction = section.replace(/#/, ""),
+          reqSection = $(".section").filter(
+            '[data-section="' + direction + '"]'
+          ),
+          reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $("body, html").animate(
+            {
+              scrollTop: reqSectionPos
+            },
+            800
+          );
+        } else {
+          $("body, html").scrollTop(reqSectionPos);
+        }
+      };
+
+      var checkSection = function checkSection() {
+        $(".section").each(function() {
+          var $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var currentId = $this.data("section"),
+              reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+            reqLink
+              .closest("li")
+              .addClass("active")
+              .siblings()
+              .removeClass("active");
+          }
+        });
+      };
+
+      $(".main-menu").on("click", "a", function(e) {
+        e.preventDefault();
+        showSection($(this).attr("href"), true);
+      });
+
+      $(window).scroll(function() {
+        checkSection();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+
+    <title>Ramanujan Srinath, PhD</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/lightbox.css" />
+
+    <style>
+      img {
+          width: 40%;
+          overflow: hidden;
+          border-radius: 5px;
+          margin-left: 7px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <div class="image">
+              <a href="index.html"><img src="assets/images/avatar.jpeg" alt="" /></a>
+            </div>
+            <div class="author-content">
+              <h4>Ramanujan Srinath</h4>
+              <span>Neuroscientist</span>
+            </div>
+            <!-- <div class="social-network">
+              <ul class="soial-icons">
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-dribbble"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-rss"></i></a>
+                </li>
+              </ul>
+            </div> -->
+            <div class="copyright-text">
+              <p>Copyright 2020 Ramanujan Srinth</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section post" data-section="section1">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Solid Shape Representation in V4</h2>
+            <div class="line-dec"></div>
+            <span>
+              Adding a Dimension to V4 Shape Processing
+            </span>
+          </div>
+          <div class="row">
+            <span>
+              <img src="assets/images/thinker.jpeg" align="right">
+              <p align="left">
+                We look at and interact with objects effortlessly. By simply glancing at an object, we can make deductions about its shape, material, stability, and affordances, how we would reach out and grasp it, whether or not it would shatter if it fell to the floor, etc. All this from the projection of a fleeting 2D image on our retinae. This seemingly superhuman ability is the result of millions of years of evolution and perceptual learning, and it underlies the most computationally intricate processes our brains are tasked to perform. The transformation of the 2D retinal image into information about the *identity* of the object is accomplished by a series of cortical areas called the ventral visual pathway. The specific transformation I was interested in during my PhD was the extraction of 3D shape information in an intermediate area called V4. Neurons in area V4 were previously known to represent 2D contour, binocular disparity, and 3D orientation. But whether and how these neurons transformed predominantly 2D image inputs from areas V1 and V2 into the 3D shape information processed downstream, in area TEO/TE, was not known. I performed three experiments and computational analyses to study these transformations.
+              </p>
+              <p align="left">
+                Using <b>micro-electrode recording in awake, fixating macaque monkeys</b>, I found that V4 neurons represent 3D solid shape information in an explicit and compact manner. I analyzed the responses and tuning of V4 neurons to parts of artificially constructed solid shapes displayed on a screen. When I compared 3D and 2D shape responses, I found that most V4 neurons (~ 66%) prefer solid shape fragments and are tuned to specific 3D shape fragments. I did rigorous computational analyses which suggested that solid shape models more generally account for V4 responses, while slices through these models might explain responses to previously reported contour and planar shape responses.              
+              </p>
+              <p align="left">
+                In similar experiments using <b>two-photon microscopy in anaesthetised monkeys</b>, I replicated the finding above – a substantial fraction of neurons responded more strongly to solid shapes than to their planar silhouettes. Further, there was strong juxtaposition of 3D- and 2D-shape-preferring neurons in distinct patches, and neighbouring patches were most responsive to congruent solid and planar shapes. This suggests that the extraction of solid shape information from image information imposes a constraint on the micro-organization of neurons in V4, and that 3D and 2D information are likely processed in parallel pathways.              
+              </p>
+              <p align="left">
+                When I compared V4 neurons to pre-trained <b>deep network models of object vision</b>, these models contained units that had V4-like 3D solid shape selectivity. By dissecting the network, I found that the inputs to 3D-shape-tuned units were predominantly from a branch of the network that processes achromatic gradients in the image. This is the first demonstration of the inner workings of a network and how one kind of information (achromatic gradients) is transformed into another (3D shape). In future experiments, in collaboration with scientists in the lab, I will test the prediction that inputs to 3D neurons in V4 are predominantly process achromatic images.              
+              </p>
+              <u>Paper:</u> <a href="https://www.sciencedirect.com/science/article/pii/S0960982220314469">Early Emergence of Solid Shape Coding in Natural and Deep Network Vision - ScienceDirect</a>
+              <br>
+              <u>Data and code:</u> <a href="https://github.com/ramanujansrinath/V4_solid_flat_data_code">Github</a>
+              <br>
+              <u>Thesis:</u> <a href="https://jscholarship.library.jhu.edu/handle/1774.2/62221">Solid Shape Processing in Area V4</a>
+              <br>
+              <u>Labs:</u> <a href="https://krieger.jhu.edu/mbi/directory/ed-connor/">Connor</a> and
+              <a href="https://krieger.jhu.edu/mbi/directory/kristina-nielsen/">Nielsen</a> at MBI, JHU<br>
+              <u>Image credit:</u> <a href="https://motowaganari.wordpress.com/works/">"Thinker" by Moto Waganari</a>
+            </span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+      //according to loftblog tut
+      $(".main-menu li:first").addClass("active");
+
+      var showSection = function showSection(section, isAnimate) {
+        var direction = section.replace(/#/, ""),
+          reqSection = $(".section").filter(
+            '[data-section="' + direction + '"]'
+          ),
+          reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $("body, html").animate(
+            {
+              scrollTop: reqSectionPos
+            },
+            800
+          );
+        } else {
+          $("body, html").scrollTop(reqSectionPos);
+        }
+      };
+
+      var checkSection = function checkSection() {
+        $(".section").each(function() {
+          var $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var currentId = $this.data("section"),
+              reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+            reqLink
+              .closest("li")
+              .addClass("active")
+              .siblings()
+              .removeClass("active");
+          }
+        });
+      };
+
+      $(".main-menu").on("click", "a", function(e) {
+        e.preventDefault();
+        showSection($(this).attr("href"), true);
+      });
+
+      $(window).scroll(function() {
+        checkSection();
+      });
+    </script>
+  </body>
+</html>

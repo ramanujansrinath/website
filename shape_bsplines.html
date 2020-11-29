@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+
+    <title>Ramanujan Srinath, PhD</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/lightbox.css" />
+
+    <style>
+      img {
+          width: 40%;
+          overflow: hidden;
+          border-radius: 5px;
+          margin-left: 7px;
+          margin-right: 7px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <div class="image">
+              <a href="index.html"><img src="assets/images/avatar.jpeg" alt="" /></a>
+            </div>
+            <div class="author-content">
+              <h4>Ramanujan Srinath</h4>
+              <span>Neuroscientist</span>
+            </div>
+            <!-- <div class="social-network">
+              <ul class="soial-icons">
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-dribbble"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-rss"></i></a>
+                </li>
+              </ul>
+            </div> -->
+            <div class="copyright-text">
+              <p>Copyright 2020 Ramanujan Srinth</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section post" data-section="section1">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Closed-loop B-Spline Shapes</h2>
+            <div class="line-dec"></div>
+            <span>
+              Creating 2D shapes with morphable contour elements
+            </span>
+          </div>
+          <div class="row">
+            <span>
+              <img src="assets/images/bspline1.png" align="right">
+              <p align="left">
+                The central image processing motif along the ventral visual pathway is that of abstraction via integration. In early stages of visual processing, small edges, textures, colours are represented. Along the ventral visual pathway, this representation is gradually transformed into larger geometric constructs, until the final stage of the pathway explicitly represents objects and scenes. At least at first, this process broadly occurs along the edge of the shape, its *contour* - integrating edges into curves and combinations of curves. Computer vision lacks the knowledge of these integration algorithms and is thus woefully deficient in performing the simplest of segmentation and recognition operations - a feat achieved almost effortlessly by humans. To study integration of contours along a shape, I created a flexible closed-loop shape generation algorithm. This algorithm started with B-spline control points along the perimeter of a circle and randomly moved them to form shapes that contained the full range of convexities and concavities observed in object silhouettes in the world. These shapes could be morphed and recombined to probe the neural representations of groups of neurons.
+              </p>
+              <img src="assets/images/bspline2.png" align="left">
+              <p align="left">
+                Parts of these shapes could be occluded to fine-tune our estimates of neural tuning. I found points of peak information (the points at which Shannon information is highest are the points of accelerating orientation or high curvature) to centre the apertures that reveal parts of the objects. I later extended this algorithm to change the stimuli behind the occluder in a way that would be disruptive to contour integration by moving or rotating the shape visible in one aperture but not other apertures.
+              </p>
+              <img src="assets/images/bspline3.png" align="right">
+              <p align="left">
+                This was an extremely enticing line of enquiry which I unfortunately was not able to probe in detail during my PhD. But I put many of these algorithms in other future projects to great use.
+              </p>
+            </span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+      //according to loftblog tut
+      $(".main-menu li:first").addClass("active");
+
+      var showSection = function showSection(section, isAnimate) {
+        var direction = section.replace(/#/, ""),
+          reqSection = $(".section").filter(
+            '[data-section="' + direction + '"]'
+          ),
+          reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $("body, html").animate(
+            {
+              scrollTop: reqSectionPos
+            },
+            800
+          );
+        } else {
+          $("body, html").scrollTop(reqSectionPos);
+        }
+      };
+
+      var checkSection = function checkSection() {
+        $(".section").each(function() {
+          var $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var currentId = $this.data("section"),
+              reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+            reqLink
+              .closest("li")
+              .addClass("active")
+              .siblings()
+              .removeClass("active");
+          }
+        });
+      };
+
+      $(".main-menu").on("click", "a", function(e) {
+        e.preventDefault();
+        showSection($(this).attr("href"), true);
+      });
+
+      $(window).scroll(function() {
+        checkSection();
+      });
+    </script>
+  </body>
+</html>

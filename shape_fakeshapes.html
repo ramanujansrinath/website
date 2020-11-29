@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+
+    <title>Ramanujan Srinath, PhD</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/lightbox.css" />
+
+    <style>
+      img {
+          width: 50%;
+          align-content: center;
+          overflow: hidden;
+          border-radius: 5px;
+          margin-left: 7px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <div class="image">
+              <a href="index.html"><img src="assets/images/avatar.jpeg" alt="" /></a>
+            </div>
+            <div class="author-content">
+              <h4>Ramanujan Srinath</h4>
+              <span>Neuroscientist</span>
+            </div>
+            <!-- <div class="social-network">
+              <ul class="soial-icons">
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-dribbble"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-rss"></i></a>
+                </li>
+              </ul>
+            </div> -->
+            <div class="copyright-text">
+              <p>Copyright 2020 Ramanujan Srinth</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section post" data-section="section1">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Random Shapes vs Real Shapes</h2>
+            <div class="line-dec"></div>
+            <span>
+              How real are these randomly generated shapes
+            </span>
+          </div>
+          <div class="row">
+            <span>
+              <p align="left">
+                Very early on, I realised that the 2D closed-loop cubic b-spline shapes I was making looked nothing like natural object contours IRL*. For one, if you walked along the contour of these shapes, I guessed that the amount of information† would be change in a qualitatively different way compared to natural shapes. So I decided to check.
+              </p>
+              <img src="assets/images/shapepowerlaw.png" align="right">
+              <p align="left">
+                Check out <a href="https://search.proquest.com/openview/1cbe3c23a6e7d0949bbcdb38f739eabd/1?pq-origsite=gscholar&cbl=1456341">this paper</a> for the rationale behind this analysis but, in essence, in natural images, the distribution of the lengths of approximately straight segments along a contour follows a power law. I isolated the object and parameterised the contour of a set of over 50,000 natural images from the <a href="http://www.sonic.net/mnitepub/pccafe/reviews/hemera_photo_objects_vol3/photo_objects_vol3.html">Hemera Photo-Objects Vol III set</a> and a roughly matched set of random shapes that were generated using my random 2D shape algorithm. The figure below shows the empirical distributions of segment lengths for both sets on a log-log axis. While the distributions have differences, lines fit to the linear portion of the distributions are strikingly similar. They are different in other regards (not described by this figure) like the distribution of curvature magnitudes and the over-representation of orientations aligned with cartesian coordinates, but they happen to have the same power law distribution of approximately straight line segments along the contour. This was an interesting side analysis on the way to investigating contour integration in V4 that may be on the cards in the future.
+              </p>
+
+              <!-- <div style="text-align: center;"><img src="assets/images/shapepowerlaw.png" /></div> -->
+              <br>
+              <p align="left">
+                <b>*</b> this is only true in a broad sense i.e. a set of random shapes would bear little resemblance to a set of random real-life objects, but a genetic algorithm conditioned to recreate a natural object by morphing the random shapes can do so (coming soon...). In other words, I didn’t add constraints like gravity, growth processes, artifactual design, physical affordances, etc. that are generally imposed on natural objects which essentially make them a subset of my random shapes.<br><br>
+
+                <b>†</b> the concept is that the density of information along a contour is highest at points of rapid orientation change or high curvature. Think Attneave’s cat.
+              </p>
+            </span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+      //according to loftblog tut
+      $(".main-menu li:first").addClass("active");
+
+      var showSection = function showSection(section, isAnimate) {
+        var direction = section.replace(/#/, ""),
+          reqSection = $(".section").filter(
+            '[data-section="' + direction + '"]'
+          ),
+          reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $("body, html").animate(
+            {
+              scrollTop: reqSectionPos
+            },
+            800
+          );
+        } else {
+          $("body, html").scrollTop(reqSectionPos);
+        }
+      };
+
+      var checkSection = function checkSection() {
+        $(".section").each(function() {
+          var $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var currentId = $this.data("section"),
+              reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+            reqLink
+              .closest("li")
+              .addClass("active")
+              .siblings()
+              .removeClass("active");
+          }
+        });
+      };
+
+      $(".main-menu").on("click", "a", function(e) {
+        e.preventDefault();
+        showSection($(this).attr("href"), true);
+      });
+
+      $(window).scroll(function() {
+        checkSection();
+      });
+    </script>
+  </body>
+</html>

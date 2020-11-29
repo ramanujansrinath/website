@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+
+    <title>Ramanujan Srinath, PhD</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/lightbox.css" />
+
+    <style>
+      img {
+          width: 100%;
+          overflow: hidden;
+          border-radius: 5px;
+          margin-left: 7px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <div class="image">
+              <a href="index.html"><img src="assets/images/avatar.jpeg" alt="" /></a>
+            </div>
+            <div class="author-content">
+              <h4>Ramanujan Srinath</h4>
+              <span>Neuroscientist</span>
+            </div>
+            <!-- <div class="social-network">
+              <ul class="soial-icons">
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-dribbble"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-rss"></i></a>
+                </li>
+              </ul>
+            </div> -->
+            <div class="copyright-text">
+              <p>Copyright 2020 Ramanujan Srinth</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section post" data-section="section1">
+        <div class="container">
+          <div class="section-heading">
+            <h2>AlexNet Responses to Image Phase Scrambling</h2>
+            <div class="line-dec"></div>
+            <span>
+              Are AlexNet units responding to 3D shape parts or texture patterns
+            </span>
+          </div>
+          <div class="row">
+            <span>
+              <p align="left">
+                In my thesis, I tested the hypothesis that V4 neurons respond to 3D volumetric shape parts as opposed to 2D contours at the self-occlusion boundary of a shape. After showing that V4 neurons have systematically higher responses to 3D shapes vs their 2D counterparts, I followed up with three strong tests — (a) the shape tuning of each neuron derived from carefully and exhaustively sampling the relevant shape space using an adaptive shape evolution algorithm should be consistent across independent evolutions, (b) the preference of the neurons do not change as the contrast of the shapes (3D or 2D) are changed, and (c) neurons will maintain their 3D shape selectivity when rendered as random dot stereograms (RDS) without any 2D or contrast/shading based cues.
+              </p>
+              <p align="left">
+                These tests were effective for V4 neurons but tricky to implement for AlexNet. Nevertheless, I showed that a large proportion of AlexNet layer 3 units, like V4 neurons, prefer 3D volumetric shapes, and that their 3D part selectivity/tuning was consistent across different instantiations of the shape evolution algorithm. Because I was unable to test AlexNet units with RDS stimuli, I decided to test whether the solid shape responses of AlexNet units were dependent on the precise shading gradient produced by lighting on solid shape objects or would any variation in luminance within the self-occlusion boundary would do the trick. This analysis didn’t quite fit the narrative in the manuscript but it is a cool test. To do this, I resorted to phase scrambling to retain the energy of the original image*. For the significantly 2D/3D units in AlexNet, when tested with these random phase noise stimuli, the responses drop to nearly 0. So it is not enough just to have some random variation in luminance within the boundary. The luminance pattern needs to be such that the 3D geometry of the shape can be inferred from it. 
+              </p>
+              <div style="text-align: center; margin-bottom: 10px"><img src="assets/images/phasesc.png" /></div>
+              <p align="left">
+                <u>*Caveat:</u> I mask out the original silhouette from the phase scrambled image so it doesn’t actually retain the original energy. But that wasn’t the point of the test. I just wanted to add some “texture” or variation within the boundary and this seemed like a good way of doing that. For the curious, even if I don’t mask the image, the results are the same.
+              </p>
+            </span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+      //according to loftblog tut
+      $(".main-menu li:first").addClass("active");
+
+      var showSection = function showSection(section, isAnimate) {
+        var direction = section.replace(/#/, ""),
+          reqSection = $(".section").filter(
+            '[data-section="' + direction + '"]'
+          ),
+          reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $("body, html").animate(
+            {
+              scrollTop: reqSectionPos
+            },
+            800
+          );
+        } else {
+          $("body, html").scrollTop(reqSectionPos);
+        }
+      };
+
+      var checkSection = function checkSection() {
+        $(".section").each(function() {
+          var $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var currentId = $this.data("section"),
+              reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+            reqLink
+              .closest("li")
+              .addClass("active")
+              .siblings()
+              .removeClass("active");
+          }
+        });
+      };
+
+      $(".main-menu").on("click", "a", function(e) {
+        e.preventDefault();
+        showSection($(this).attr("href"), true);
+      });
+
+      $(window).scroll(function() {
+        checkSection();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+
+    <title>Ramanujan Srinath, PhD</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/lightbox.css" />
+
+    <style>
+      img {
+          width: 100%;
+          overflow: hidden;
+          border-radius: 5px;
+          margin-left: 7px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <div class="image">
+              <a href="index.html"><img src="assets/images/avatar.jpeg" alt="" /></a>
+            </div>
+            <div class="author-content">
+              <h4>Ramanujan Srinath</h4>
+              <span>Neuroscientist</span>
+            </div>
+            <!-- <div class="social-network">
+              <ul class="soial-icons">
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-dribbble"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-rss"></i></a>
+                </li>
+              </ul>
+            </div> -->
+            <div class="copyright-text">
+              <p>Copyright 2020 Ramanujan Srinth</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section post" data-section="section1">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Spatial Reach of the ECoG Electrode</h2>
+            <div class="line-dec"></div>
+            <span>
+              Using NEURON and pooling simulations to find the spatial reach of ECoG
+            </span>
+          </div>
+          <div class="row">
+            <span>
+              <p align="left">
+                In <a href="https://www.sciencedirect.com/science/article/pii/S0896627311010051">Modeling the Spatial Reach of the LFP</a>, Linden et al used a biophysical model to show that, if the the activity of a population of neurons was uncorrelated, then the spatial reach of the LFP was on the order of 200um. When I was working with Dr. Supratim Ray at IISc, we thought it would be fairly straightforward to then simulate an even larger set of neurons to find the spatial reach of an ECoG/EEG electrode. This, truly, was my introduction to neuroscience research. I audited a class on the biophysics of neurons, found a few <a href="https://www.neuron.yale.edu/neuron/">NEURON</a> models that someone had reproduced from an old Terry Sejnowski study, and tried to run a simulation. This was a great learning experience but turned out to be quite difficult - the models were too complicated and there were too many assumptions about neural activity and the way that ECoG electrodes work.
+              </p>
+              <p align="left">
+                In data from Dr. John Maunsell's lab, Supratim had observed that when the local field potential (LFP) activity is summed across neighbouring electrodes on an electrode array, the slope of the power spectrum increases. Also, the slope of the PSD of an ECoG electrode is greater than that of a single electrode in the brain. Based on this, I was tasked with simulating the neural activity of an array of electrodes and increasing the size of the array until its mean PSD matched the PSD of an ECoG electrode. This admittedly simple model of ECoG reach had too many caveats to be useful but it estimated the spatial reach to be 2.4mm. On the way to doing that, we discovered a few interesting things about how correlations in neural activity affect *coherence*, a popular measure of cortical communication. Later, my talented colleague, Agrita Dubey, discovered the spatial reach to be ~3mm using much more principled and thorough experiments and analyses in <a href="https://www.jneurosci.org/content/39/22/4299">Cortical Electrocorticogram (ECoG) Is a Local Signal</a>.
+              </p>
+              <div style="text-align: center; margin-bottom: 10px"><img src="assets/images/ecog.png" /></div>
+            </span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+      //according to loftblog tut
+      $(".main-menu li:first").addClass("active");
+
+      var showSection = function showSection(section, isAnimate) {
+        var direction = section.replace(/#/, ""),
+          reqSection = $(".section").filter(
+            '[data-section="' + direction + '"]'
+          ),
+          reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $("body, html").animate(
+            {
+              scrollTop: reqSectionPos
+            },
+            800
+          );
+        } else {
+          $("body, html").scrollTop(reqSectionPos);
+        }
+      };
+
+      var checkSection = function checkSection() {
+        $(".section").each(function() {
+          var $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var currentId = $this.data("section"),
+              reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+            reqLink
+              .closest("li")
+              .addClass("active")
+              .siblings()
+              .removeClass("active");
+          }
+        });
+      };
+
+      $(".main-menu").on("click", "a", function(e) {
+        e.preventDefault();
+        showSection($(this).attr("href"), true);
+      });
+
+      $(window).scroll(function() {
+        checkSection();
+      });
+    </script>
+  </body>
+</html>
