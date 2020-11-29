@@ -31,6 +31,7 @@
           width: 70%;
           overflow: hidden;
           border-radius: 5px;
+          margin-left: 8px;
       }
     </style>
   </head>
@@ -85,21 +86,22 @@
           <div class="row">
             <span>
               <p align="left">
-                In my PhD, I figured out a way to render 3D volumetric shapes as stereograms and kinematograms. The idea behind stereopsis is illustrated in the figure.
+                During my PhD, I figured out a way to render 3D volumetric shapes as stereograms and kinematograms. The idea behind stereopsis is illustrated in the figure.
               </p>
               <img src="assets/images/stereo.png" align="right">
-              <!-- <div style="text-align: center; margin-bottom: 10px"><img src="assets/images/stereo.png" /></div> -->
               <p align="left">
                 It depicts a top view of a primate with frontally placed eyes looking at a spot (“fixation”). Because of the distance between the eyes, the two points (blue and green) which are at different depths relative to the fixation spot (red) project at different relative distances from the fixation spot on the retinae. You can extend this for 3D shapes. To render these stereograms, Alexandriya (my colleague in Connor lab) helped me find the visible vertices of 3D shapes using Blender, and then I used these vertices to displace a field of randomly placed dots on a plane by the requisite amount (the dots that lay outside the contour of the shape remained behind at a constant depth). Then, based on distance between the eyes, I calculated the left or right displacement of these dots to be rendered on either the left or right screens. I made the 2D shape counterpart by simply displacing the random field of dots to a constant depth. If you cross or uncross your eyes on the stereogram below, you should be able to see the 3D shape. In the experiments, I used a <a href="https://en.wikipedia.org/wiki/Haploscope">haploscope</a> to project the left and right images into the two eyes.
               </p>
-              <div style="text-align: center; margin-bottom: 10px" width="100%"><img src="assets/images/rds_example.png" /></div>
+              <div class="img" style="text-align: center; margin-bottom: 10px; width:100% !important">
+                <img src="assets/images/rds_example.png" />
+              </div>
               <p align="left">
-                The kinematogram was a bit more fiddly. That required that I find the visible vertices for every frame of the shape’s rotation and then make the dots appear and disappear instead of jumping back to the field of background dots. I found that I got the best percept of the 2D shape when the axis of rotation was a little behind the shape itself. (Open the animations in a new tab to view them in high resolution.)
+                The kinematograms were a bit more fiddly. They required that I find the visible vertices for every frame of the shape’s rotation and then make the dots appear and disappear near the self-occlusion boundary. If I didn't do that, the shape appeared to be transparent around the boundary and the random dots jumped back and forth between the shape and the field of background dots. I found that I got the best percept of the 2D shape when the axis of rotation was a little behind the shape itself. (Open the animations in a new tab to view them in high resolution.)
               </p>
-              <div class="img" style="float:left !important; width:45% !important; margin-left: 3% !important">
+              <div class="img" style="float:left !important; width:45% !important; margin-left: 3% !important; margin-bottom: 7px !important">
                 <img src="assets/images/rdk_3d.gif">
               </div>
-              <div class="img" style="float:left !important; width:45% !important; margin-left: 3% !important">
+              <div class="img" style="float:right !important; width:45% !important; margin-left: 3% !important; margin-bottom: 7px !important">
                 <img src="assets/images/rdk_2d.gif">
               </div>
               <br>
@@ -111,7 +113,7 @@
                 </video> -->
               </p>
               <p align="left">
-                These two shape display manipulations were definitely my favourite hard problems I solved in my PhD. It was fun watching unsuspecting prospective graduate students “see” the shape appear from a field of random dots when I displayed these for them on the haploscope during lab demos. 
+                These two shape display manipulations were definitely my favourite hard problems I solved during my PhD. It was fun watching unsuspecting prospective graduate students “see” the shape appear from a field of random dots when I displayed these for them on the haploscope during lab demos. 
               </p>
             </span>
           </div>
